@@ -2,12 +2,11 @@ numpy
 pandas
 matplotlib
 seaborn
-opencv-python
+opencv-python-headless
 Pillow
 tqdm
-scikit-learn
-scikit-image
-xgboost
+scikit-learn==1.7.2
+xgboost==3.2.0
 joblib
 streamlit
 jupyter

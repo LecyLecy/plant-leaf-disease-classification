@@ -1,6 +1,5 @@
 # Dataset
 archive/
-data/
 
 # Compressed dataset files
 *.zip
