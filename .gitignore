@@ -1,14 +1,22 @@
-@'
-# Python
+# Dataset
+archive/
+data/
+
+# Compressed dataset files
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Local editor settings
+.vscode/
+
+# Python cache
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-
-# Virtual environment
-.venv/
-venv/
-env/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -17,23 +25,13 @@ env/
 .DS_Store
 Thumbs.db
 
-# Raw and processed dataset
-data/raw/
-data/processed/
+# Virtual environment
+.venv/
+venv/
+env/
 
-# Large compressed dataset files
-*.zip
-*.rar
-*.7z
-*.tar
-*.gz
+# Personal notes
+notes/
 
-# models/*.pkl
-
-# Temporary prediction outputs
-outputs/predictions/*
-!outputs/predictions/.gitkeep
-'@ | Set-Content -Encoding UTF8 .gitignore
-
-# VS Code local settings
-.vscode/
+# Temporary outputs
+outputs/predictions/
