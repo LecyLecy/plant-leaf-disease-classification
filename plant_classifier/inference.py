@@ -254,10 +254,13 @@ def shape_features(spot_mask: np.ndarray, leaf_mask: np.ndarray) -> Dict[str, fl
     contours, _ = cv2.findContours(spot_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contour_areas = [cv2.contourArea(contour) for contour in contours]
 
+    disease_area_ratio = min(float(spot_area / leaf_area), 1.0)
+    largest_spot_ratio = min(float((max(contour_areas) if contour_areas else 0.0) / leaf_area), 1.0)
+
     return {
-        "disease_area_ratio": float(spot_area / leaf_area),
+        "disease_area_ratio": disease_area_ratio,
         "spot_count": int(len(contours)),
-        "largest_spot_ratio": float((max(contour_areas) if contour_areas else 0.0) / leaf_area),
+        "largest_spot_ratio": largest_spot_ratio,
     }
 
 

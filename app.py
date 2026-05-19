@@ -33,8 +33,9 @@ def format_confidence(confidence):
 
 st.title("🌿 Plant Leaf Disease Classification")
 st.write(
-    "Upload a plant leaf image to classify it into one of the selected healthy or diseased classes. "
-    "This MVP uses handcrafted Computer Vision features and a Random Forest model."
+    "Upload a plant leaf image to classify it into one of the supported classes. "
+    "This MVP is trained only on Peach, Pepper Bell, and Strawberry leaf images. "
+    "Images outside these plant types may produce unreliable predictions."
 )
 
 with st.expander("Supported classes"):
@@ -93,13 +94,13 @@ try:
     img_col1, img_col2, img_col3 = st.columns(3)
 
     with img_col1:
-        st.image(result["processed_rgb"], caption="Uploaded Image", use_container_width=True)
+        st.image(result["processed_rgb"], caption="Uploaded Image", width="stretch")
 
     with img_col2:
-        st.image(result["spot_mask"], caption="Disease Spot Mask", use_container_width=True)
+        st.image(result["spot_mask"], caption="Disease Spot Mask", width="stretch")
 
     with img_col3:
-        st.image(result["overlay"], caption="Disease Spot Overlay", use_container_width=True)
+        st.image(result["overlay"], caption="Disease Spot Overlay", width="stretch")
 
     st.subheader("Extracted Feature Summary")
 
@@ -114,7 +115,7 @@ try:
 
     st.dataframe(
         pd.DataFrame([selected_features]).T.rename(columns={0: "value"}),
-        use_container_width=True,
+        width="stretch",
     )
 
 except Exception as error:
